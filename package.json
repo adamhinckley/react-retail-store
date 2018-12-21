@@ -1,0 +1,8 @@
+{
+  "name": "react-retail-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/adamhinckley/react-retail-store.git",
+  "author": "adamhinckley <adamhinckley@mac.com>",
+  "license": "MIT"
+}
