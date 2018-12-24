@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/adam-hinckley-83a0de/fake-store/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
