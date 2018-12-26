@@ -1,4 +1,7 @@
+# This is called a type
 type User {
+  # lines below are are called fields
   id: ID! @unique
   name: String!
+  email: String! #exclamation point makes it required
 }
