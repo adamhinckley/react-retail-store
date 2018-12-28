@@ -14,9 +14,9 @@ export default class Item extends Component {
   render() {
     const { item } = this.props;
     return (
+      //first line in ItemStyles could also be a ternary operator, it's checking to see if an image exists.
       <ItemStyles>
         {item.image && <img src={item.image} alt={item.title} />}
-        //this could also be a ternary operator 👆 it's checking to see if an image exists.
         <Title>
           <Link
             href={{
