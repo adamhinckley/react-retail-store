@@ -2,7 +2,7 @@ import UpdateItem from "../components/UpdateItem";
 
 const Sell = props => (
   <div>
-    <UpdateItem />
+    <UpdateItem id={props.query.id} />
   </div>
 );
 
