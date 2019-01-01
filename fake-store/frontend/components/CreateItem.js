@@ -36,6 +36,25 @@ class CreateItem extends Component {
     this.setState({ [name]: val });
   };
 
+  uploadFile = async e => {
+    console.log("uploading file");
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "fakestore");
+
+    const res = await fetch("https://api.cloudinary.com/v1_1/doyikdls9/image/upload", {
+      method: "POST",
+      body: data
+    });
+    const file = await res.json();
+    console.log(file);
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url
+    });
+  };
+
   render() {
     const { title, price, description } = this.state;
     return (
@@ -46,13 +65,25 @@ class CreateItem extends Component {
               e.preventDefault();
               const res = await createItem();
               Router.push({
-                pathname: "./item",
+                pathname: "/item",
                 query: { id: res.data.createItem.id }
               });
             }}
           >
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
+              <label htmlFor="File">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload Image"
+                  required
+                  onChange={this.uploadFile}
+                />
+              </label>
+
               <label htmlFor="Title">
                 Title
                 <textarea
